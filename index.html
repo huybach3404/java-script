@@ -5,65 +5,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wed nhà làm</title>
 </head>
 
 <body>
-
-
     <p id="ten"></p>
     <p id="ten2"></p>
     <p id="ten4"></p>
     <p id="ten3">Thấy nút gì ko bấm vào dưới đây này. ^^</p>
     <button id="hien">"This is Nút"</button>
-    <script>
-        let theP = document.getElementById("ten")
-        let theP2 = document.getElementById("ten2")
-        let theP3 = document.getElementById("ten3")
-        let theP4 = document.getElementById("ten4")
 
+    <script id="nut">
+        var theP = document.getElementById("ten")
+        var theP2 = document.getElementById("ten2")
+        var theP3 = document.getElementById("ten3")
+        var theP4 = document.getElementById("ten4")
 
-        let sum1 = sum(1, 2);
-        let sum2 = sum(3, 4);
-        console.log(sum1);
-        console.log(sum2);
-        alert("Chào mừng bạn đến với ứng dụng JavaScript đầu tiên")
+        alert(" Xin chào các tình yêu :)) ");
 
-
-        document.getElementById("hien").onclick = hienAn;
-        function hienAn() {
-            theP3.style = "display:none;"
-            let yeucaunhap = true;
-            let hovaten = true;
-            let sodienthoai = true;
-            while (yeucaunhap) {
-                let namsinh = prompt("Hãy nhập vào năm sinh:");
-                let hovaten = prompt("Họ và tên của bạn là:");
-                let sodienthoai = prompt("Số điện thoại của bạn là:");
-                let now = new Date().getFullYear();
-                if (namsinh > now) {
-                    alert("Bạn đừng có bốc phét :)) . Năm nay là năm: " + now);
-                    console.log("code đã chạy vào đây");
-                } else {
-                    theP4.innerHTML = "<b>" + sodienthoai + "</b>"
-                    theP2.innerHTML = "<b>" + hovaten + "</b>"
-
-                    theP.innerHTML = "<b>" + (now - namsinh) + "</b>";
-                    hovaten = false;
-                    sodienthoai = false;
-                    yeucaunhap = false;
-                    break;
-
-                }
-
-
-
-            };
+        document.getElementById("hien").onclick = hienan;
+        function hienan() {
+            theP.style = "display:none;";
+            theP2.style = "display:none;";
+            theP4.style = "display:none;";
+            alert(" Chào thân ái và quyết thắng :)");
 
         }
-        function sum(a, b) {
-            return a + b;
+        
+        var yeucaunhap = true;
+        var hovaten = true;
+        var sodienthoai = true;
+        while (yeucaunhap) {
+            var namsinh = prompt("Bạn sinh năm bao nhiêu ?");
+            var hovaten = prompt("Họ và tên ?");
+            var sodienthoai = prompt("Số điện thoại ?");
+            var now = new Date().getFullYear();
+            var yeucaunhap = true;
+
+            if (namsinh > now) {
+                alert(" Bạn đùa tôi đấy à :) ")
+            } else {
+                theP.innerHTML = "<b>" + (now - namsinh) + " Tuổi" + "</b>";
+                theP4.innerHTML = "<b>" + sodienthoai + "</b>"
+                theP2.innerHTML = "<b>" + hovaten + "</b>"
+            
+                break; 
+            }
         }
+        
+            
+        
+
+
     </script>
 </body>
 
