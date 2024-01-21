@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div>
+        <p><b>Tên</b></p> <input type="text">
+        <p><b>DOB</b></p> <input type="text">
+        <p><b>Điểm Toán</b></p> <input type="text">
+        <p><b>Điểm Lý</b></p> <input type="text">
+        <p><b>Điểm Hoá</b></p> <input type="text">
+    </div>
+    <div>
+        <div class="text2">
+            <button>Nhập</button>
+            <button>Tính điểm trung bình</button>
+            <button>Xác định học lực</button>
+        </div>
+    </div>
+
+    <table style="border: 1px solid ">
+        <thead>
+            <tr>
+                <th>Họ và tên</th>
+                <th>Ngày háng năm sinh</th>
+                <th>Điểm Toán</th>
+                <th>Điểm Lý</th>
+                <th>Điểm Hoá</th>
+                <th>Điểm trung bình</th>
+                <th>Học lực</th>
+            </tr>
+        </thead>
+    </table>
+
+    <tbody id="tbody">
+    
+    </tbody>
+
+    <script>
+        var tbody = document.getElementById("tbody");
+        console.log(tbody);
+        var hang = document.createElement("tr");
+        tbody.append(hang);
+
+        var hovaten = document.createElement("td");
+        var ngaysinh = document.createElement("td");
+        var diemtoan = document.createElement("td");
+        var diemly = document.createElement("td");
+        var diemhoa = document.createElement("td");
+        var diemtb = document.createElement("td");
+        var hocluc = document.createElement("td");
+
+        hang.append(hovaten);
+        hang.append(ngaysinh);
+        hang.append(diemtoan);
+        hang.append(diemly);
+        hang.append(diemhoa);
+        hang.append(diemtb);
+        hang.append(hocluc);
+
+        hovaten.innerHTML = "acb";
+        ngaysinh.innerHTML = "acb";
+        diemtoan.innerHTML = "acb";
+        diemly.innerHTML = "acb";
+        diemhoa.innerHTML = "acb";
+    </script>
+</body>
+
+</html>
