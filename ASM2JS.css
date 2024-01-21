@@ -1,0 +1,12 @@
+th{
+    border: 1px solid;
+    /* padding: 8px; */
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+ div.text2{
+    padding-top: 10px ;
+    padding-bottom: 10px ;
+ }
