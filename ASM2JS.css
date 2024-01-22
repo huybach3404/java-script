@@ -1,7 +1,11 @@
-th{
+table,tr,th,td{
     border: 1px solid;
-    /* padding: 8px; */
 }
+
+tr{
+    border: 1px solid;
+}
+
 table{
     width: 100%;
     border-collapse: collapse;
