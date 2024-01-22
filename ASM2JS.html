@@ -10,17 +10,19 @@
 
 <body>
     <div>
-        <p><b>Tên</b></p> <input type="text">
-        <p><b>DOB</b></p> <input type="text">
-        <p><b>Điểm Toán</b></p> <input type="text">
-        <p><b>Điểm Lý</b></p> <input type="text">
-        <p><b>Điểm Hoá</b></p> <input type="text">
+        <p><b>Tên</b></p> <input type="text" id="Ten">
+        <p><b>DOB</b></p> <input type="date" id="DOB">
+        <p><b>Điểm Toán</b></p> <input type="text" id="Dtoan">
+        <p><b>Điểm Lý</b></p> <input type="text" id="Dly">
+        <p><b>Điểm Hoá</b></p> <input type="text" id="Dhoa">
     </div>
     <div>
         <div class="text2">
-            <button>Nhập</button>
-            <button>Tính điểm trung bình</button>
-            <button>Xác định học lực</button>
+
+            <button id="Nhap">Nhập</button>
+            <button id="Tinhtb">Tính điểm trung bình</button>
+            <button id="xdhl">Xác định học lực</button>
+
         </div>
     </div>
 
@@ -36,39 +38,108 @@
                 <th>Học lực</th>
             </tr>
         </thead>
+
+        <tbody id="mytbody">
+
+        </tbody>
     </table>
 
-    <tbody id="tbody">
-    
-    </tbody>
 
     <script>
-        var tbody = document.getElementById("tbody");
-        console.log(tbody);
-        var hang = document.createElement("tr");
-        tbody.append(hang);
 
-        var hovaten = document.createElement("td");
-        var ngaysinh = document.createElement("td");
-        var diemtoan = document.createElement("td");
-        var diemly = document.createElement("td");
-        var diemhoa = document.createElement("td");
-        var diemtb = document.createElement("td");
-        var hocluc = document.createElement("td");
+        var index = 1;
 
-        hang.append(hovaten);
-        hang.append(ngaysinh);
-        hang.append(diemtoan);
-        hang.append(diemly);
-        hang.append(diemhoa);
-        hang.append(diemtb);
-        hang.append(hocluc);
+        function addrow() {
+            let tbody = document.getElementById("mytbody");
+            console.log(tbody);
+            let hang = document.createElement("tr");
+            tbody.append(hang);
 
-        hovaten.innerHTML = "acb";
-        ngaysinh.innerHTML = "acb";
-        diemtoan.innerHTML = "acb";
-        diemly.innerHTML = "acb";
-        diemhoa.innerHTML = "acb";
+            hang.id = index;
+
+            let hovaten = document.createElement("td");
+            let ngaysinh = document.createElement("td");
+            let diemtoan = document.createElement("td");
+            let diemly = document.createElement("td");
+            let diemhoa = document.createElement("td");
+            let diemtb = document.createElement("td");
+            let hocluc = document.createElement("td");
+
+            diemtoan.id = "dtoan" + index;
+            diemly.id = "dly" + index;
+            diemhoa.id = "dhoa" + index;
+            diemtb.id = "diemtrungbinh" + index;
+            hocluc.id = "hluc" + index;
+
+            index = index + 1;
+
+            hang.append(hovaten);
+            hang.append(ngaysinh);
+            hang.append(diemtoan);
+            hang.append(diemly);
+            hang.append(diemhoa);
+            hang.append(diemtb);
+            hang.append(hocluc);
+
+            let ten = document.getElementById("Ten");
+            let dob = document.getElementById("DOB");
+            let dtoan = document.getElementById("Dtoan");
+            let dly = document.getElementById("Dly");
+            let dhoa = document.getElementById("Dhoa");
+
+            hovaten.innerHTML = ten.value;
+            ngaysinh.innerHTML = dob.value;
+            diemtoan.innerHTML = dtoan.value;
+            diemly.innerHTML = dly.value;
+            diemhoa.innerHTML = dhoa.value;
+
+        }
+
+        let nhap = document.getElementById("Nhap");
+        nhap.onclick = addrow;
+
+        function diemTB() {
+            for (let i = 1; i < index; i++) {
+
+                let nhapToan = document.getElementById("dtoan" + i);
+                let nhapLy = document.getElementById("dly" + i);
+                let nhaphoa = document.getElementById("dhoa" + i);
+                let dtrungbinh = document.getElementById("diemtrungbinh" + i);
+                dtrungbinh.innerHTML = ((nhapToan.innerHTML - (-nhapLy.innerHTML) - (-nhaphoa.innerHTML)) / 3);
+
+            }
+
+        }
+
+        let tinhtb = document.getElementById("Tinhtb");
+        tinhtb.onclick = diemTB;
+
+        function HocLuc() {
+            for (let i = 1; i < index; i++) {
+
+                let dtrungbinh = document.getElementById("diemtrungbinh" + i);
+                let hl = document.getElementById("hluc" + i);
+                if (dtrungbinh.innerHTML >= 8) {
+                    hl.innerHTML = "Giỏi"
+                }
+                else
+                    if (6 <= dtrungbinh.innerHTML && dtrungbinh.innerHTML < 8) {
+                        hl.innerHTML = "khá"
+                    }
+                    else
+                        if (3 <= dtrungbinh.innerHTML && dtrungbinh.innerHTML < 6) {
+                            hl.innerHTML = "Trung Bình"
+                        }
+                        else {
+                            hl.innerHTML = "Yếu"
+                        }
+
+            }
+        }
+
+        let thl = document.getElementById("xdhl");
+        thl.onclick = HocLuc;
+
     </script>
 </body>
 
